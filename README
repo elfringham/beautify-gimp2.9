@@ -1,25 +1,28 @@
 README
 ===================
 
-GIMP Beautify is a set of GIMP plug-ins for quickly and easily beautify photo.
+GIMP Beautify is a set of GIMP plug-ins for quickly and easily beautify photos.
 
-Thanks all GIMP developers, because they give us a great Image Manipulation Program with a strong plug-in architecture, so we can write great plug-ins doing more fantastic things.
+Thanks to all GIMP developers because they provide us a great Image Manipulation Program with a strong plug-in architecture, so we can write great plug-ins for doing more fantastic things.
 
-!!! Important: All the beautify plug-ins has been changed to under the "Filters" menu instead of "Tools" menu.
+!!! Important: All the beautify plug-ins have been moved to under the "Filters" menu instead of "Tools" menu.
 
 INSTALL
 ===================
 
 !!! Be sure that you have installed the gimp-devel-tools package before install.
 
-method 1 - install into mathine directory:
-
+### method 1 - install into mathine directory:
+```bash
 make
 sudo make install
+```
 
-method 2 - install into user directory:
+### method 2 - install into user directory:
+```bash
 make
 make userinstall
+```
 
 INSTALL TEXTURES
 ===================
