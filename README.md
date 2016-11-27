@@ -1,5 +1,4 @@
-README
-===================
+# README
 
 GIMP Beautify is a set of GIMP plug-ins for quickly and easily beautify photos.
 
@@ -7,8 +6,7 @@ Thanks to all GIMP developers because they provide us a great Image Manipulation
 
 !!! Important: All the beautify plug-ins have been moved to under the "Filters" menu instead of "Tools" menu.
 
-INSTALL
-===================
+# INSTALL
 
 !!! Be sure that you have installed the gimp-devel-tools package before install.
 
@@ -24,14 +22,12 @@ make
 make userinstall
 ```
 
-INSTALL TEXTURES
-===================
+# INSTALL TEXTURES
 
 You can download and install the textures following this document:
 https://github.com/hejiann/beautify/wiki/Textures-Download
 
-USING
-===================
+# USING
 
 GIMP menu:
 Filters -> Beautify -> Beautify
@@ -40,14 +36,13 @@ Filters -> Beautify -> Border -> Simple Border
 Filters -> Beautify -> Border -> Rip Border
 Filters -> Beautify -> Border -> Texture Border
 
-SUPPORT
-===================
+# SUPPORT
 
 Document & Tutorials: https://github.com/hejiann/beautify/wiki
 IRC:                  #beautify on FreeNode
 GIMP Plugin Registry: http://registry.gimp.org/node/26835
 GIMP Chat:            http://www.gimpchat.com/viewtopic.php?f=9&t=4811
 
-CHANGELOG
-===================
+# CHANGELOG
+
 [Full Changelog](https://github.com/rigred/beautify-gimp2.9/blob/master/CHANGELOG.md)
