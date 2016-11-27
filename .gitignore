@@ -9,3 +9,5 @@ simple-border-textures.h
 border-textures.h
 CHANGELOG.bak
 graph.svg
+error-output.log
+testing*
