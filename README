@@ -48,6 +48,9 @@ GIMP Chat:            http://www.gimpchat.com/viewtopic.php?f=9&t=4811
 CHANGELOG
 ===================
 
+2016-11-27
+Update deprected functions to new Gimp 2.9 functions
+
 2012-08-12
 Make 0.5.3 release.
 simple-border: add the effect ID display.
@@ -233,4 +236,3 @@ Add the border opacity adjustment for rip-border plugin.
 
 2012-06-06
 Provided the base version of rip-border GIMP plugin.
-
