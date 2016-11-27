@@ -23,7 +23,7 @@
 
 ### 2012-08-04:
 * beautify: fix the Retro LOMO effect.
-* beautify: fixed GIMP 2.6 compile issue:  undefined reference to `gimp_image_select_rectangle'
+* beautify: fixed GIMP 2.6 compile issue:  undefined reference to 'gimp_image_select_rectangle'
 
 ### 2012-08-03:
 * beautify: fix the Soft Light effect.
@@ -82,7 +82,7 @@
 
 ### 2012-07-26
 ## [v0.5.1](https://github.com/rigred/beautify-gimp2.9/tree/v0.5.1) (2012-07-26)
-* beautify: fix gimp-2.6 issue: undefined reference to `gimp_item_delete'
+* beautify: fix gimp-2.6 issue: undefined reference to 'gimp_item_delete'
 
 ### 2012-07-25
 * beautify: add beam gradient effect
