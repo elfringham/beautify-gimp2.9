@@ -105,7 +105,7 @@ run (const gchar      *name,
      GimpParam       **return_vals)
 {
   static GimpParam   values[2];
-  GimpDrawable      *drawable;
+  GimpDrawable      *drawable; //was GimpDrawable converted to GeglBuffer
   GimpRunMode        run_mode;
   GimpPDBStatusType  status = GIMP_PDB_SUCCESS;
 
@@ -298,7 +298,7 @@ text_font_dialog (gint32        image_ID,
   gint thumb_width = MIN (text_width, 192);
   gint thumb_height = MIN (text_height, 48);
   gint32 text_layer = gimp_image_get_active_layer (text_image);
- 
+
   gint row = 1;
   gint col = 1;
 

@@ -691,7 +691,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
     }
     case BEAUTIFY_EFFECT_ELEGANT:
     {
-      gimp_hue_saturation (effect_layer, GIMP_ALL_HUES, 0, 0, -40);
+      gimp_drawable_hue_saturation (effect_layer, GIMP_ALL_HUES, 0.0, 0.0, -40, 0.0); // new extra overlap arguments gimp_drawable_hue_saturation (gint32 drawable_ID, GimpHueRange hue_range, gdouble hue_offset, gdouble lightness, gdouble saturation, gdouble overlap);
 
       gdouble red_pts[] = {
         0.000000, 0.000171,
@@ -1720,7 +1720,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
     }
     case BEAUTIFY_EFFECT_LIFE_SKETCH:
     {
-      gimp_desaturate_full (effect_layer, GIMP_DESATURATE_LUMINOSITY);
+      gimp_drawable_desaturate (effect_layer, GIMP_DESATURATE_LUMINOSITY);
 
       gint32     layer;
       GdkPixbuf *pixbuf;
@@ -1779,7 +1779,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
     }
     case BEAUTIFY_EFFECT_CLASSIC_SKETCH:
     {
-      gimp_desaturate_full (effect_layer, GIMP_DESATURATE_LUMINOSITY);
+      gimp_drawable_desaturate (effect_layer, GIMP_DESATURATE_LUMINOSITY);
 
       gint32     layer;
       GdkPixbuf *pixbuf;

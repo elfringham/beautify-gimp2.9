@@ -194,7 +194,7 @@ run (const gchar      *name,
      GimpParam       **return_vals)
 {
   static GimpParam   values[2];
-  GimpDrawable      *drawable;
+  GimpDrawable      *drawable; //Was GimpDrawable, converted to GeglBuffer
   GimpRunMode        run_mode;
   GimpPDBStatusType  status = GIMP_PDB_SUCCESS;
 
@@ -331,7 +331,7 @@ color_update (GtkWidget *preview)
 {
   gimp_context_set_foreground (&bvals.color);
   gimp_edit_fill (color_layer, GIMP_FOREGROUND_FILL);
-  
+
   preview_update (preview);
 }
 
@@ -677,4 +677,3 @@ do_texture_press ()
 
   preview_update (preview);
 }
-

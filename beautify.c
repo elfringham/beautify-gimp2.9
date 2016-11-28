@@ -268,7 +268,7 @@ run (const gchar      *name,
      GimpParam       **return_vals)
 {
   static GimpParam   values[2];
-  GimpDrawable      *drawable;
+  GimpDrawable      *drawable; //Convert to GeglBuffer ptr
   GimpRunMode        run_mode;
   GimpPDBStatusType  status = GIMP_PDB_SUCCESS;
 
@@ -281,7 +281,7 @@ run (const gchar      *name,
   values[0].data.d_status = status;
 
   image_ID = param[1].data.d_image;
-  drawable = gimp_drawable_get (param[2].data.d_drawable);
+  drawable = gimp_drawable_get (param[2].data.d_drawable); // new gimp_drawable_get returns GeglBuffer, needs to be converted
 
   width = gimp_image_width (image_ID);
   height = gimp_image_height (image_ID);
@@ -1295,7 +1295,7 @@ cancel_effect ()
   }
 
   gint32 current_layer = gimp_image_get_active_layer (preview_image);
-  gimp_drawable_delete (current_layer);
+  gimp_item_delete (current_layer);
 
   current_effect = BEAUTIFY_EFFECT_NONE;
 
