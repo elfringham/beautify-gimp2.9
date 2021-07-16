@@ -302,7 +302,7 @@ border (gint32 image_ID)
     gint32 texture = gimp_layer_new_from_pixbuf (image_ID, "texture", pixbuf, bvals.opacity, GIMP_NORMAL_MODE, 0, 0);
     gimp_image_add_layer (image_ID, texture, -1);
     gimp_layer_scale (texture, width, height, FALSE);
-    gimp_invert (texture);
+    gimp_drawable_invert (texture, TRUE);
     gimp_edit_copy (texture);
     gint32 floating_sel_ID = gimp_edit_paste (texture_mask, TRUE);
     gimp_image_remove_layer (image_ID, texture);
@@ -670,7 +670,7 @@ do_texture_press ()
                                               GIMP_NORMAL_MODE, 0, 0);
   gimp_image_add_layer (preview_image, texture_layer, -1);
   gimp_layer_scale (texture_layer, width, height, FALSE);
-  gimp_invert (texture_layer);
+  gimp_drawable_invert (texture_layer, TRUE);
   gimp_edit_copy (texture_layer);
   gimp_edit_paste (texture_mask, TRUE);
   gimp_image_remove_layer (preview_image, texture_layer);

@@ -71,7 +71,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
       layer = gimp_layer_copy (effect_layer);
       gimp_image_insert_layer (image_ID, layer, -1, -1);
       //gimp_levels (layer, GIMP_HISTOGRAM_VALUE, 20, 255, 1, 0, 255);
-      gimp_drawable_levels(layer, GIMP_HISTOGRAM_VALUE, 0.078431372549, 1.0, 1, 1.0, 0.0, 1.0, 1);
+      gimp_drawable_levels(layer, GIMP_HISTOGRAM_VALUE, 0.078431372549, 1.0, TRUE, 1.0, 0.0, 1.0, TRUE);
 
       GimpParam *return_vals;
       gint nreturn_vals;
@@ -213,7 +213,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
       break;
     }
     case BEAUTIFY_EFFECT_INVERT:
-      gimp_invert (effect_layer);
+      gimp_drawable_invert (effect_layer, TRUE);
       break;
     case BEAUTIFY_EFFECT_CLASSIC_LOMO:
     {
@@ -1697,7 +1697,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
       layer = gimp_layer_copy (effect_layer);
       gimp_image_add_layer (image_ID, layer, -1);
       gimp_layer_set_mode  (layer, GIMP_DODGE_MODE);
-      gimp_invert (layer);
+      gimp_drawable_invert (layer, TRUE);
 
       GimpParam *return_vals;
       gint nreturn_vals;
@@ -1712,7 +1712,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
                                         GIMP_PDB_END);
       gimp_destroy_params (return_vals, nreturn_vals);
 
-      gimp_drawable_levels (layer, GIMP_HISTOGRAM_VALUE, 0.0, 1.0, 1, 1.0, 0.0, 0.98431372549, 1);
+      gimp_drawable_levels (layer, GIMP_HISTOGRAM_VALUE, 0.0, 1.0, TRUE, 1.0, 0.0, 0.98431372549, TRUE);
 
       gimp_image_merge_down (image_ID, layer, GIMP_CLIP_TO_BOTTOM_LAYER);
 
