@@ -268,7 +268,7 @@ run (const gchar      *name,
      GimpParam       **return_vals)
 {
   static GimpParam   values[2];
-  GimpDrawable      *drawable;
+  GimpDrawable      *drawable; //Convert to GeglBuffer ptr
   GimpRunMode        run_mode;
   GimpPDBStatusType  status = GIMP_PDB_SUCCESS;
 
@@ -281,7 +281,7 @@ run (const gchar      *name,
   values[0].data.d_status = status;
 
   image_ID = param[1].data.d_image;
-  drawable = gimp_drawable_get (param[2].data.d_drawable);
+  drawable = gimp_drawable_get (param[2].data.d_drawable); // new gimp_drawable_get returns GeglBuffer, needs to be converted
 
   width = gimp_image_width (image_ID);
   height = gimp_image_height (image_ID);
@@ -758,16 +758,24 @@ adjustment (gint32 image) {
 
   if (bvals.brightness != 0 || bvals.contrast != 0)
   {
-    gint low_input = 0;
-    gint high_input = 255;
-    gint low_output = 0;
-    gint high_output = 255;
+    //TODO
+    //Fix Int to Double math
+    gdouble low_input = 0.0;
+    gdouble high_input = 1.0; //255
+    gdouble low_output = 0.0;
+    gdouble high_output = 1.0; //255
 
+    //TODO
+    //scale input using 0-100
+    //previously done as -127 <-> 127
     if (bvals.brightness > 0)
       high_input -= bvals.brightness;
     if (bvals.brightness < 0)
       high_output += bvals.brightness;
 
+    //TODO
+    //scale input using 0-100
+    //previously done as -127 <-> 127
     gint value = 62 * (bvals.contrast / 50.0);
     if (value > 0) {
       low_input += value;
@@ -778,7 +786,7 @@ adjustment (gint32 image) {
       high_output += value;
     }
 
-    gimp_levels (layer, GIMP_HISTOGRAM_VALUE,
+    gimp_drawable_levels (layer, GIMP_HISTOGRAM_VALUE,
                  low_input, high_input,
                  1,
                  low_output, high_output);
@@ -1266,6 +1274,7 @@ apply_effect ()
     gdouble opacity = gtk_range_get_value (GTK_RANGE (effect_opacity));
     if (opacity < 100) {
       gint32 layer = gimp_image_get_active_layer (real_image);
+      g_print("Apply Effect\n=================\nActive Layer: %i\n", layer);
       gimp_layer_set_opacity (layer, opacity);
     }
   }
@@ -1286,7 +1295,7 @@ cancel_effect ()
   }
 
   gint32 current_layer = gimp_image_get_active_layer (preview_image);
-  gimp_drawable_delete (current_layer);
+  gimp_item_delete (current_layer);
 
   current_effect = BEAUTIFY_EFFECT_NONE;
 
@@ -1297,4 +1306,3 @@ cancel_effect ()
     saved_image = 0;
   }
 }
-

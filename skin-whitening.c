@@ -136,7 +136,7 @@ run (const gchar      *name,
      GimpParam       **return_vals)
 {
   static GimpParam   values[2];
-  GimpDrawable      *drawable;
+  GimpDrawable      *drawable; //Was GimpDrawable converted to GeglBuffer
   GimpRunMode        run_mode;
   GimpPDBStatusType  status = GIMP_PDB_SUCCESS;
 

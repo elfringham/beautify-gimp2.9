@@ -1,9 +1,13 @@
 *.o
-#beautify
+beautify
 beautify-textures.h
-# skin-whitening
+skin-whitening
 skin-whitening-images.h
-# simple-border
+simple-border
 simple-border-textures.h
-# border
+border
 border-textures.h
+CHANGELOG.bak
+graph.svg
+error-output.log
+testing*

@@ -217,7 +217,7 @@ run (const gchar      *name,
      GimpParam       **return_vals)
 {
   static GimpParam   values[2];
-  GimpDrawable      *drawable;
+  GimpDrawable      *drawable; //Was GimpDrawable converted to GeglBufer
   GimpRunMode        run_mode;
   GimpPDBStatusType  status = GIMP_PDB_SUCCESS;
 
@@ -783,4 +783,3 @@ do_texture_press ()
 
   preview_update (preview);
 }
-
