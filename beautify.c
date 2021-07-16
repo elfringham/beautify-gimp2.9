@@ -788,8 +788,9 @@ adjustment (gint32 image) {
 
     gimp_drawable_levels (layer, GIMP_HISTOGRAM_VALUE,
                  low_input, high_input,
-                 1,
-                 low_output, high_output);
+                 1, 1.0,
+                 low_output, high_output,
+                 1);
   }
 
   if (bvals.saturation != 0 || bvals.hue)
