@@ -1525,7 +1525,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
         1.0,
       };
       gimp_context_set_foreground (&color);
-      gimp_edit_fill (layer, GIMP_FOREGROUND_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_FOREGROUND_FILL);
       gimp_image_merge_down (image_ID, layer, GIMP_CLIP_TO_BOTTOM_LAYER);
 
       GdkPixbuf *pixbuf = gdk_pixbuf_new_from_inline (-1, texture_christmas_eve, FALSE, NULL);
@@ -1659,7 +1659,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
         1.0,
       };
       gimp_context_set_foreground (&color);
-      gimp_edit_fill (layer, GIMP_FOREGROUND_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_FOREGROUND_FILL);
       gimp_image_merge_down (image_ID, layer, GIMP_CLIP_TO_BOTTOM_LAYER);
 
       pixbuf = gdk_pixbuf_new_from_inline (-1, texture_pick_light_1, FALSE, NULL);
@@ -1869,7 +1869,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
       gimp_image_add_layer (image_ID, layer, -1);
       gimp_drawable_fill (layer, GIMP_TRANSPARENT_FILL);
       gimp_context_set_pattern ("Stripes Fine");
-      gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
       gimp_image_merge_down (image_ID, layer, GIMP_CLIP_TO_IMAGE);
 
       break;
@@ -1894,7 +1894,7 @@ run_effect (gint32 image_ID, BeautifyEffectType effect)
       layer = gimp_image_get_active_layer (image_ID);
       GimpRGB color = { 0.5, 0.5, 0.5, 1.0 };
       gimp_context_set_foreground (&color);
-      gimp_edit_fill (layer, GIMP_FOREGROUND_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_FOREGROUND_FILL);
 
       gimp_selection_none (image_ID);
 

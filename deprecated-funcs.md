@@ -27,3 +27,5 @@
 8. ‘gimp_rect_select’ is deprecated: Use 'gimp_image_select_rectangle' instead [-Wdeprecated-declarations]
 9. 'gimp_invert' is deprecated: Use 'gimp_drawable_invert' instead [-Wdeprecated-declarations]
   1. **Resolved**
+10. ‘gimp_edit_fill’ is deprecated: Use 'gimp_drawable_edit_fill' instead [-Wdeprecated-declarations]
+  1. **Resolved**

@@ -363,7 +363,7 @@ border (gint32 image_ID)
                         (gdouble) width - margin_left - margin_right,
                         margin_top,
                         GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-      gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
       /* bottom */
       gimp_rect_select (texture_image,
@@ -379,7 +379,7 @@ border (gint32 image_ID)
                         (gdouble) width - margin_left - margin_right,
                         margin_bottom,
                         GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-      gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
     }
 
     if (height > margin_top + margin_bottom) {
@@ -397,7 +397,7 @@ border (gint32 image_ID)
                         margin_left,
                         (gdouble) height - margin_top - margin_bottom,
                         GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-      gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
       /* right */
       gimp_rect_select (texture_image,
@@ -413,7 +413,7 @@ border (gint32 image_ID)
                         margin_right,
                         (gdouble) height - margin_top - margin_bottom,
                         GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-      gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+      gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
     }
 
     /* top left */
@@ -430,7 +430,7 @@ border (gint32 image_ID)
                       margin_left,
                       margin_top,
                       GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-    gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+    gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     /* top right */
     gimp_rect_select (texture_image,
@@ -446,7 +446,7 @@ border (gint32 image_ID)
                       margin_right,
                       margin_top,
                       GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-    gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+    gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     /* bottom left */
     gimp_rect_select (texture_image,
@@ -462,7 +462,7 @@ border (gint32 image_ID)
                       margin_left,
                       margin_bottom,
                       GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-    gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+    gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     /* bottom right */
     gimp_rect_select (texture_image,
@@ -478,7 +478,7 @@ border (gint32 image_ID)
                       margin_right,
                       margin_bottom,
                       GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
-    gimp_edit_fill (layer, GIMP_PATTERN_FILL);
+    gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     gimp_image_merge_down(image_ID, layer, GIMP_CLIP_TO_IMAGE);
 
