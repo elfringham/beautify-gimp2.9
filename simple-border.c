@@ -284,6 +284,9 @@ border (gint32 image_ID)
   gdouble     margin_bottom;
   gdouble     margin_left;
   gdouble     margin_right;
+  gint32      feather;
+  gdouble     feather_radius_x;
+  gdouble     feather_radius_y;
 
   pixbuf = gdk_pixbuf_new_from_inline (-1, bvals.border->texture, FALSE, NULL);
 
@@ -348,141 +351,149 @@ border (gint32 image_ID)
     INIT_I18N ();
     gimp_context_set_pattern (_("Clipboard"));
 
+    feather = gimp_context_get_feather();
+    gimp_context_get_feather_radius(&feather_radius_x, &feather_radius_y);
+    gimp_context_set_feather(FALSE);
+    gimp_context_set_feather_radius(0.0, 0.0);
+
     if (width > margin_left + margin_right) {
       /* top */
-      gimp_rect_select (texture_image,
+      gimp_image_select_rectangle (texture_image,
+                        GIMP_CHANNEL_OP_REPLACE,
                         margin_left,
                         0,
                         (gdouble) texture_width - margin_left - margin_right,
-                        margin_top,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        margin_top);
       gimp_edit_copy (texture_layer);
-      gimp_rect_select (image_ID,
+      gimp_image_select_rectangle (image_ID,
+                        GIMP_CHANNEL_OP_REPLACE,
                         margin_left,
                         0,
                         (gdouble) width - margin_left - margin_right,
-                        margin_top,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        margin_top);
       gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
       /* bottom */
-      gimp_rect_select (texture_image,
+      gimp_image_select_rectangle (texture_image,
+                        GIMP_CHANNEL_OP_REPLACE,
                         margin_left,
                         (gdouble) texture_height - margin_bottom,
                         (gdouble) texture_width - margin_left - margin_right,
-                        margin_bottom,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        margin_bottom);
       gimp_edit_copy (texture_layer);
-      gimp_rect_select (image_ID,
+      gimp_image_select_rectangle (image_ID,
+                        GIMP_CHANNEL_OP_REPLACE,
                         margin_left,
                         (gdouble) height - margin_bottom,
                         (gdouble) width - margin_left - margin_right,
-                        margin_bottom,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        margin_bottom);
       gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
     }
 
     if (height > margin_top + margin_bottom) {
       /* left */
-      gimp_rect_select (texture_image,
+      gimp_image_select_rectangle (texture_image,
+                        GIMP_CHANNEL_OP_REPLACE,
                         0,
                         margin_top,
                         margin_left,
-                        (gdouble) texture_height - margin_top - margin_bottom,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        (gdouble) texture_height - margin_top - margin_bottom);
       gimp_edit_copy (texture_layer);
-      gimp_rect_select (image_ID,
+      gimp_image_select_rectangle (image_ID,
+                        GIMP_CHANNEL_OP_REPLACE,
                         0,
                         margin_top,
                         margin_left,
-                        (gdouble) height - margin_top - margin_bottom,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        (gdouble) height - margin_top - margin_bottom);
       gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
       /* right */
-      gimp_rect_select (texture_image,
+      gimp_image_select_rectangle (texture_image,
+                        GIMP_CHANNEL_OP_REPLACE,
                         (gdouble) texture_width - margin_right,
                         margin_top,
                         margin_right,
-                        (gdouble) texture_height - margin_top - margin_bottom,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        (gdouble) texture_height - margin_top - margin_bottom);
       gimp_edit_copy (texture_layer);
-      gimp_rect_select (image_ID,
+      gimp_image_select_rectangle (image_ID,
+                        GIMP_CHANNEL_OP_REPLACE,
                         (gdouble) width - margin_right,
                         margin_top,
                         margin_right,
-                        (gdouble) height - margin_top - margin_bottom,
-                        GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                        (gdouble) height - margin_top - margin_bottom);
       gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
     }
 
     /* top left */
-    gimp_rect_select (texture_image,
+    gimp_image_select_rectangle (texture_image,
+                      GIMP_CHANNEL_OP_REPLACE,
                       0,
                       0,
                       margin_left,
-                      margin_top,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_top);
     gimp_edit_copy (texture_layer);
-    gimp_rect_select (image_ID,
+    gimp_image_select_rectangle (image_ID,
+                      GIMP_CHANNEL_OP_REPLACE,
                       0,
                       0,
                       margin_left,
-                      margin_top,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_top);
     gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     /* top right */
-    gimp_rect_select (texture_image,
+    gimp_image_select_rectangle (texture_image,
+                      GIMP_CHANNEL_OP_REPLACE,
                       (gdouble) texture_width - margin_right,
                       0,
                       margin_right,
-                      margin_top,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_top);
     gimp_edit_copy (texture_layer);
-    gimp_rect_select (image_ID,
+    gimp_image_select_rectangle (image_ID,
+                      GIMP_CHANNEL_OP_REPLACE,
                       (gdouble) width - margin_right,
                       0,
                       margin_right,
-                      margin_top,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_top);
     gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     /* bottom left */
-    gimp_rect_select (texture_image,
+    gimp_image_select_rectangle (texture_image,
+                      GIMP_CHANNEL_OP_REPLACE,
                       0,
                       (gdouble) texture_height - margin_bottom,
                       margin_left,
-                      margin_bottom,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_bottom);
     gimp_edit_copy (texture_layer);
-    gimp_rect_select (image_ID,
+    gimp_image_select_rectangle (image_ID,
+                      GIMP_CHANNEL_OP_REPLACE,
                       0,
                       (gdouble) height - margin_bottom,
                       margin_left,
-                      margin_bottom,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_bottom);
     gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     /* bottom right */
-    gimp_rect_select (texture_image,
+    gimp_image_select_rectangle (texture_image,
+                      GIMP_CHANNEL_OP_REPLACE,
                       (gdouble) texture_width - margin_right,
                       (gdouble) texture_height - margin_bottom,
                       margin_right,
-                      margin_bottom,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_bottom);
     gimp_edit_copy (texture_layer);
-    gimp_rect_select (image_ID,
+    gimp_image_select_rectangle (image_ID,
+                      GIMP_CHANNEL_OP_REPLACE,
                       (gdouble) width - margin_right,
                       (gdouble) height - margin_bottom,
                       margin_right,
-                      margin_bottom,
-                      GIMP_CHANNEL_OP_REPLACE, FALSE, 0);
+                      margin_bottom);
     gimp_drawable_edit_fill (layer, GIMP_PATTERN_FILL);
 
     gimp_image_merge_down(image_ID, layer, GIMP_CLIP_TO_IMAGE);
 
     gimp_selection_none (image_ID);
+
+    gimp_context_set_feather(feather);
+    gimp_context_set_feather_radius(feather_radius_x, feather_radius_y);
   }
 }
 
