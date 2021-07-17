@@ -817,11 +817,11 @@ adjustment (gint32 image) {
 
   if (bvals.cyan_red != 0 || bvals.magenta_green != 0 || bvals.yellow_blue != 0)
   {
-    gimp_color_balance (layer, GIMP_SHADOWS, TRUE,
+    gimp_drawable_color_balance (layer, GIMP_SHADOWS, TRUE,
                         bvals.cyan_red, bvals.magenta_green, bvals.yellow_blue);
-    gimp_color_balance (layer, GIMP_MIDTONES, TRUE,
+    gimp_drawable_color_balance (layer, GIMP_MIDTONES, TRUE,
                         bvals.cyan_red, bvals.magenta_green, bvals.yellow_blue);
-    gimp_color_balance (layer, GIMP_HIGHLIGHTS, TRUE,
+    gimp_drawable_color_balance (layer, GIMP_HIGHLIGHTS, TRUE,
                         bvals.cyan_red, bvals.magenta_green, bvals.yellow_blue);
   }
 }

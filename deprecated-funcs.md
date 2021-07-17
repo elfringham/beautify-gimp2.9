@@ -2,11 +2,9 @@
 
 1. ‘gdk_pixbuf_new_from_inline’ is deprecated [-Wdeprecated-declarations]
 2. ‘gimp_drawable_detach’ is deprecated [-Wdeprecated-declarations]
-3. ‘gimp_edit_fill’ is deprecated: Use 'gimp_drawable_edit_fill' instead [-Wdeprecated-declarations]
-4. ‘GTimeVal’ is deprecated: Use 'GDateTime' instead [-Wdeprecated-declarations]
-5. ‘GTypeDebugFlags’ is deprecated [-Wdeprecated-declarations]
-6. ‘gimp_color_balance’ is deprecated: Use 'gimp_drawable_color_color_balance' instead [-Wdeprecated-declarations]
-7. ‘gimp_hue_saturation’ is deprecated: Use 'gimp_drawable_hue_saturation' instead [-Wdeprecated-declarations]
+3. ‘GTimeVal’ is deprecated: Use 'GDateTime' instead [-Wdeprecated-declarations]
+4. ‘GTypeDebugFlags’ is deprecated [-Wdeprecated-declarations]
+5. ‘gimp_hue_saturation’ is deprecated: Use 'gimp_drawable_hue_saturation' instead [-Wdeprecated-declarations]
 
 ## Known-Fixes
 
@@ -25,7 +23,10 @@
 7. ‘gimp_levels’ is deprecated: Use 'gimp_drawable_levels' instead [-Wdeprecated-declarations]
   1. **Resolved**
 8. ‘gimp_rect_select’ is deprecated: Use 'gimp_image_select_rectangle' instead [-Wdeprecated-declarations]
+  1. **Pending** - Likely simple fix
 9. 'gimp_invert' is deprecated: Use 'gimp_drawable_invert' instead [-Wdeprecated-declarations]
   1. **Resolved**
 10. ‘gimp_edit_fill’ is deprecated: Use 'gimp_drawable_edit_fill' instead [-Wdeprecated-declarations]
+  1. **Resolved**
+11. ‘gimp_color_balance’ is deprecated: Use 'gimp_drawable_color_color_balance' instead [-Wdeprecated-declarations]
   1. **Resolved**
